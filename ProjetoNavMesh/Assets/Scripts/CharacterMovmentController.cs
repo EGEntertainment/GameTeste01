@@ -32,7 +32,7 @@ public class CharacterMovmentController : MonoBehaviour {
 
     private void LookPointer()
     {
-        Quaternion LookRotation = Quaternion.LookRotation(transform.position - lookingPosition, transform.up);
+		Quaternion LookRotation = Quaternion.LookRotation(lookingPosition - transform.position, transform.up);
         transform.rotation = Quaternion.Slerp(transform.rotation, LookRotation, speed * Time.deltaTime);
     }
 
@@ -50,7 +50,7 @@ public class CharacterMovmentController : MonoBehaviour {
         Ray cameraToGround = mainCamera.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
-        if(Physics.Raycast(cameraToGround, out hit, 50.0f, groundMask))
+       if(Physics.Raycast(cameraToGround, out hit, 50.0f, groundMask))
 
             lookingPosition = hit.point;
     }
