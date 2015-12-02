@@ -18,8 +18,8 @@ public class Bala : MonoBehaviour {
 	}
 	//Destroi o carro ao bater no carro
 	void OnCollisionEnter (Collision outroCarro){	
-		if(outroCarro.gameObject.name == "Carro"){
-			Destroy(outroCarro.gameObject, 1f);
+		if(outroCarro.gameObject.tag == "Enemy"){
+			Destroy(outroCarro.gameObject);
 			Debug.Log("Collidiu");
 		}
 	}
